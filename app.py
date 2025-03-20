@@ -489,6 +489,6 @@ if st.button("Send Emails"):
             email_body = generate_email(company)
             subject = f"High-Quality {supplied_materials} for {company}"
             st.write(send_email(sender_email, app_password, recipient_email, subject, email_body))
-st.success("✅ All emails have been processed.")
+            st.success("✅ All emails have been processed.")
 
 
