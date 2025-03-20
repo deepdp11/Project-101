@@ -334,8 +334,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Set up API Keys
-SERPAPI_KEY = ""
-OPENAI_API_KEY = ""
+SERPAPI_KEY = st.secrets["SERPAPI_KEY"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 openai.api_key = OPENAI_API_KEY
 
 st.title("📧 Automated Email Scraper & Sender for Manufacturers")
