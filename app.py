@@ -233,6 +233,7 @@ st.markdown("""
     }
     .info-box {
         background-color: #f8f9fa;
+        color: #1e262e;
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 20px;
