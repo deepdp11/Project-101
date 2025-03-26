@@ -545,7 +545,7 @@ with tab2:
             # Style the dataframe
             st.subheader(f"📋 Found {len(df)} Potential Clients")
             # styled_df = df.style.apply('background-color: #f0f8ff')
-            st.dataframe(use_container_width=True)
+            st.dataframe(df, use_container_width=True)
             
             # Save to session state and file
             st.session_state.df = df
