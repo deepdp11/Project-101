@@ -276,7 +276,7 @@ st.markdown("""
 
     /* Information Boxes */
     .info-box {
-        background-color: black;
+        background-color: white;
         color: var(--text-secondary);
         border-radius: 12px;
         border-left: 5px solid var(--secondary-color);
