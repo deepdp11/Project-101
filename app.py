@@ -193,141 +193,174 @@ st.set_page_config(
 # Custom CSS for modern styling
 st.markdown("""
 <style>
-    /* Modern Color Palette */
+    /* Modern, Sleek Color Palette */
     :root {
-        --primary-color: #4361ee;
-        --secondary-color: #7209b7;
-        --accent-color: #3a0ca3;
-        --background-light: #f8f9fa;
-        --text-dark: #1a1a1a;
-        --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
-        --gradient-secondary: linear-gradient(135deg, #7209b7 0%, #4361ee 100%);
+        --deep-blue: #1a2980;
+        --vibrant-blue: #26d0ce;
+        --soft-background: #f4f7f6;
+        --dark-background: #0f2027;
+        --accent-purple: #6a11cb;
+        --gradient-blue: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+        --gradient-purple: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     }
 
-    /* Global Styles */
+    /* Global Redesign */
+    body {
+        background-color: var(--soft-background);
+        font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    }
+
     .main .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        background: var(--background-light);
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        background: white;
+        border-radius: 20px;
+        box-shadow: 
+            0 20px 50px rgba(0,0,0,0.1), 
+            0 10px 20px rgba(0,0,0,0.05);
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
     }
 
-    /* Button Styling with 3D Effect */
+    /* Advanced Button Design */
     .stButton button {
-        width: 100%;
-        border-radius: 12px;
-        height: 3.5rem;
-        font-weight: 600;
-        background: var(--gradient-primary);
+        background: var(--gradient-blue);
         color: white;
         border: none;
-        transition: all 0.3s ease;
-        transform: perspective(500px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        height: 3.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.4s ease;
+        box-shadow: 
+            0 10px 20px rgba(38, 208, 206, 0.3),
+            0 5px 10px rgba(26, 41, 128, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stButton button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            120deg, 
+            transparent, 
+            rgba(255,255,255,0.3), 
+            transparent
+        );
+        transition: all 0.5s ease;
+    }
+
+    .stButton button:hover::before {
+        left: 100%;
     }
 
     .stButton button:hover {
-        transform: scale(1.02) perspective(500px) rotateX(2deg);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        background: var(--gradient-secondary);
+        transform: translateY(-5px);
+        box-shadow: 
+            0 15px 25px rgba(38, 208, 206, 0.4),
+            0 7px 15px rgba(26, 41, 128, 0.3);
     }
 
-    /* Input Styling */
-    .stTextInput input, .stTextArea textarea {
-        border-radius: 12px;
-        border: 1px solid #e0e0e0;
+    /* Input Fields with Modern Touch */
+    .stTextInput input, 
+    .stTextArea textarea {
+        border-radius: 15px;
+        border: 2px solid rgba(38, 208, 206, 0.2);
         background: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        box-shadow: 
+            0 5px 15px rgba(0,0,0,0.05);
         transition: all 0.3s ease;
+        padding: 12px 15px;
     }
 
-    .stTextInput input:focus, .stTextArea textarea:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+    .stTextInput input:focus, 
+    .stTextArea textarea:focus {
+        border-color: var(--vibrant-blue);
+        box-shadow: 
+            0 5px 15px rgba(38, 208, 206, 0.2),
+            0 0 10px rgba(38, 208, 206, 0.1);
+        outline: none;
     }
 
-    /* Headings */
+    /* Headings with Modern Typography */
     h1 {
-        color: var(--text-dark);
-        font-size: 2.75rem !important;
-        font-weight: 800 !important;
-        margin-bottom: 1.5rem !important;
-        background: var(--gradient-primary);
+        background: var(--gradient-blue);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-size: 3rem !important;
+        font-weight: 900 !important;
+        letter-spacing: -1px;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
 
     h2 {
-        color: var(--accent-color);
-        font-size: 1.75rem !important;
+        color: var(--deep-blue);
         font-weight: 700 !important;
-        margin-top: 1.5rem !important;
-        margin-bottom: 1rem !important;
+        border-bottom: 3px solid var(--vibrant-blue);
+        padding-bottom: 10px;
     }
 
-    /* Information Boxes */
+    /* Advanced Info and Message Boxes */
     .info-box {
-        background: linear-gradient(145deg, #f0f4ff, #e6ebf5);
-        color: var(--text-dark);
-        border-radius: 12px;
+        background: linear-gradient(145deg, #e6f2f1, #f0f9f8);
+        border-radius: 15px;
+        border-left: 6px solid var(--vibrant-blue);
+        box-shadow: 
+            0 10px 20px rgba(38, 208, 206, 0.1),
+            inset 0 0 15px rgba(255,255,255,0.5);
         padding: 20px;
-        margin-bottom: 20px;
-        border-left: 5px solid var(--primary-color);
-        box-shadow: 8px 8px 15px #d1d9e6, -8px -8px 15px #ffffff;
     }
 
-    /* Success and Error Messages */
     .success-message {
-        background: linear-gradient(145deg, #e6f3e8, #d4edda);
-        color: #155724;
-        padding: 15px;
-        border-radius: 12px;
-        margin-top: 20px;
-        border-left: 5px solid #28a745;
-        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.1);
+        background: linear-gradient(145deg, #e6f7f4, #d4f2ea);
+        border-radius: 15px;
+        border-left: 6px solid #2ecc71;
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
     }
 
     .error-message {
-        background: linear-gradient(145deg, #f9e6e8, #f8d7da);
-        color: #721c24;
-        padding: 15px;
-        border-radius: 12px;
-        margin-top: 20px;
-        border-left: 5px solid #dc3545;
-        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.1);
-    }
-
-    /* Dataframe Styling */
-    .stDataFrame {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        background: white;
-    }
-
-    /* Section Divider */
-    .section-divider {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        border-top: 2px solid rgba(67, 97, 238, 0.1);
+        background: linear-gradient(145deg, #f9e6e8, #f4d3d6);
+        border-radius: 15px;
+        border-left: 6px solid #e74c3c;
+        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
     }
 
     /* Tab Styling */
     .stTabs [data-baseweb="tab-list"] {
-        background: var(--background-light);
-        border-radius: 12px;
+        background: var(--soft-background);
+        border-radius: 20px;
         padding: 5px;
     }
 
     .stTabs [data-baseweb="tab"] {
         transition: all 0.3s ease;
-        border-radius: 8px;
+        border-radius: 15px;
+        margin: 0 5px;
     }
 
     .stTabs [data-baseweb="tab-selected"] {
-        background: var(--gradient-primary);
+        background: var(--gradient-blue);
         color: white !important;
+    }
+
+    /* Dataframe Styling */
+    .stDataFrame {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 
+            0 15px 30px rgba(0,0,0,0.1),
+            0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Footer and Divider */
+    .section-divider {
+        border-top: 3px solid rgba(38, 208, 206, 0.2);
+        margin: 2rem 0;
     }
 </style>
 """, unsafe_allow_html=True)
