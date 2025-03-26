@@ -193,174 +193,148 @@ st.set_page_config(
 # Custom CSS for modern styling
 st.markdown("""
 <style>
-    /* Modern, Sleek Color Palette */
+    /* Accessible Color Palette */
     :root {
-        --deep-blue: #1a2980;
-        --vibrant-blue: #26d0ce;
-        --soft-background: #f4f7f6;
-        --dark-background: #0f2027;
-        --accent-purple: #6a11cb;
-        --gradient-blue: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
-        --gradient-purple: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        --primary-color: #2C3E50;      /* Deep Navy Blue */
+        --secondary-color: #3498DB;    /* Bright Blue */
+        --accent-color: #27AE60;       /* Vibrant Green */
+        --background-light: #F5F7FA;   /* Soft Light Gray */
+        --text-primary: #2C3E50;       /* Dark Navy for Text */
+        --text-secondary: #34495E;     /* Slightly Lighter Navy */
+        --white: #FFFFFF;
+        --soft-shadow: rgba(0, 0, 0, 0.1);
     }
 
-    /* Global Redesign */
+    /* Global Redesign for Readability */
     body {
-        background-color: var(--soft-background);
         font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--background-light);
+        color: var(--text-primary);
     }
 
     .main .block-container {
-        background: white;
-        border-radius: 20px;
+        background: var(--white);
+        border-radius: 16px;
         box-shadow: 
-            0 20px 50px rgba(0,0,0,0.1), 
-            0 10px 20px rgba(0,0,0,0.05);
-        padding: 2.5rem;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.3);
+            0 10px 30px var(--soft-shadow), 
+            0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
     }
 
-    /* Advanced Button Design */
+    /* Button Design */
     .stButton button {
-        background: var(--gradient-blue);
-        color: white;
+        background-color: var(--primary-color);
+        color: var(--white);
         border: none;
-        border-radius: 15px;
+        border-radius: 12px;
         height: 3.5rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: all 0.4s ease;
-        box-shadow: 
-            0 10px 20px rgba(38, 208, 206, 0.3),
-            0 5px 10px rgba(26, 41, 128, 0.2);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .stButton button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            120deg, 
-            transparent, 
-            rgba(255,255,255,0.3), 
-            transparent
-        );
-        transition: all 0.5s ease;
-    }
-
-    .stButton button:hover::before {
-        left: 100%;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(44, 62, 80, 0.2);
     }
 
     .stButton button:hover {
-        transform: translateY(-5px);
-        box-shadow: 
-            0 15px 25px rgba(38, 208, 206, 0.4),
-            0 7px 15px rgba(26, 41, 128, 0.3);
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
     }
 
-    /* Input Fields with Modern Touch */
+    /* Input Fields */
     .stTextInput input, 
     .stTextArea textarea {
-        border-radius: 15px;
-        border: 2px solid rgba(38, 208, 206, 0.2);
-        background: white;
-        box-shadow: 
-            0 5px 15px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        border: 1.5px solid #E0E4E8;
+        background: var(--white);
+        color: var(--text-primary);
         transition: all 0.3s ease;
-        padding: 12px 15px;
     }
 
     .stTextInput input:focus, 
     .stTextArea textarea:focus {
-        border-color: var(--vibrant-blue);
-        box-shadow: 
-            0 5px 15px rgba(38, 208, 206, 0.2),
-            0 0 10px rgba(38, 208, 206, 0.1);
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         outline: none;
     }
 
-    /* Headings with Modern Typography */
+    /* Headings */
     h1 {
-        background: var(--gradient-blue);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 3rem !important;
-        font-weight: 900 !important;
-        letter-spacing: -1px;
-        text-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        color: var(--primary-color);
+        font-size: 2.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.5rem;
     }
 
     h2 {
-        color: var(--deep-blue);
-        font-weight: 700 !important;
-        border-bottom: 3px solid var(--vibrant-blue);
+        color: var(--text-secondary);
+        font-size: 1.8rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid var(--secondary-color);
         padding-bottom: 10px;
     }
 
-    /* Advanced Info and Message Boxes */
+    /* Information Boxes */
     .info-box {
-        background: linear-gradient(145deg, #e6f2f1, #f0f9f8);
-        border-radius: 15px;
-        border-left: 6px solid var(--vibrant-blue);
-        box-shadow: 
-            0 10px 20px rgba(38, 208, 206, 0.1),
-            inset 0 0 15px rgba(255,255,255,0.5);
-        padding: 20px;
+        background-color: #EBF5FB;
+        color: var(--text-secondary);
+        border-radius: 12px;
+        border-left: 5px solid var(--secondary-color);
+        padding: 15px;
+        margin-bottom: 20px;
     }
 
     .success-message {
-        background: linear-gradient(145deg, #e6f7f4, #d4f2ea);
-        border-radius: 15px;
-        border-left: 6px solid #2ecc71;
-        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+        background-color: #D5F5E3;
+        color: #2E8B57;
+        border-radius: 12px;
+        border-left: 5px solid var(--accent-color);
+        padding: 15px;
     }
 
     .error-message {
-        background: linear-gradient(145deg, #f9e6e8, #f4d3d6);
-        border-radius: 15px;
-        border-left: 6px solid #e74c3c;
-        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
+        background-color: #FDEDEC;
+        color: #C0392B;
+        border-radius: 12px;
+        border-left: 5px solid #E74C3C;
+        padding: 15px;
     }
 
-    /* Tab Styling */
+    /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
-        background: var(--soft-background);
-        border-radius: 20px;
+        background-color: var(--background-light);
+        border-radius: 12px;
         padding: 5px;
     }
 
     .stTabs [data-baseweb="tab"] {
+        color: var(--text-secondary);
         transition: all 0.3s ease;
-        border-radius: 15px;
-        margin: 0 5px;
     }
 
     .stTabs [data-baseweb="tab-selected"] {
-        background: var(--gradient-blue);
-        color: white !important;
+        background-color: var(--primary-color);
+        color: var(--white) !important;
+        border-radius: 10px;
     }
 
-    /* Dataframe Styling */
+    /* Dataframe */
     .stDataFrame {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 
-            0 15px 30px rgba(0,0,0,0.1),
-            0 5px 15px rgba(0,0,0,0.05);
+        border-radius: 12px;
+        border: 1px solid #E0E4E8;
+        box-shadow: 0 4px 10px var(--soft-shadow);
     }
 
-    /* Footer and Divider */
+    /* Section Divider */
     .section-divider {
-        border-top: 3px solid rgba(38, 208, 206, 0.2);
+        border-top: 2px solid #E0E4E8;
         margin: 2rem 0;
+    }
+
+    /* Ensure Text Visibility */
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 </style>
 """, unsafe_allow_html=True)
